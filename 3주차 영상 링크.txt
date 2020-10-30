@@ -1,0 +1,20 @@
+3주 1 - 각자 repo 만들기
+https://youtu.be/ZxJUgedhPEw
+
+3주 2 - GET/POST 메소드 차이 이론
+https://youtu.be/0stUzMMaoqk
+
+3주 3 - GET/POST 메소드 차이 실습
+https://youtu.be/t6Xck-m7guk
+
+3주 4 - Read 처리
+https://youtu.be/HPhkxk0y5mc
+
+3주 5 - Create 처리
+https://youtu.be/36c600-mA9k
+
+3주 6 - Update/Delete 처리 
+https://youtu.be/8yVUZf0ZARk
+
+3주 7 - template 파일로 메인 코드량 줄이기 
+https://youtu.be/kwrkOMYset0
