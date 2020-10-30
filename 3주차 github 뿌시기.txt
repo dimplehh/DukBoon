@@ -1,0 +1,15 @@
+1.내 repository 새로 만든다.(이름은 DukBoon)
+2.주소를 복사한다.
+3.DukBoon base repository로 간다. 
+4.코드를 zip파일로 저장한다.
+5.원하는 곳에 폴더를 만들고 git bash를 실행시킨다.
+6.git init
+git remote add origin https://github.com/dimplehh/DukBoon(복사한 주소)
+7.아까 그 zip파일을 압축을 풀어서 새로 만들어둔 폴더에다 붙여넣기 한다.
+8.git status--상태보기
+git add . (다 붙여넣기)
+git commit -m "First commit"
+git push origin master
+==>이렇게하면 컴퓨터의 rep가 git의 자기 rep로 잘 이동한 것 볼 수 ㅇ
+9.내 rep에서 설정 들어가서 master로 바꾸고 save 누르기
+==>이제 그 주소+/week+2/code하면 잘 뜨는것 볼 수 ㅇ
