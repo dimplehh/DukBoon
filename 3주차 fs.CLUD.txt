@@ -1,0 +1,23 @@
+CRUD를 하려면...HTTP통신 메소드 알아야하며 <form>태그가 뭘 하는지 알아야 함
+GET,POST,PUT,PATCH,DELETE정도만 알면 됨(현재는 GET/POST정도만)
+form태그이 역할
+<form action="/OK" method="GET">
+제출되었을 때 서버의 'ok'라는 경로로 폼 전송하며 전송메소드는 GET
+페이지 주소창에 정보가 보임 따라서 암호같은 민감한 정보는 절대 GET으로 보내면 안됨
+body가 빔
+
+<form action="/write" method="POST">
+제출되었을 때 서버의 '/write'라는 경로로 폼 전송하며 전송메소드는 POST
+폼데이터가 민감한 개인정보
+크기 제한이 없음
+body에 쿼리 내용이 붙음
+
+get_post_ex.js
+서버올리고 싶을 때는 명령프롬프트에서 node get_post_ex하거나
+종료시키고 싶을 때는 ctrl+C
+createServer 안에 end가 없을 때는 종료되지 않아 계속 로딩됨
+깃헙에 반영하기(git push origin master->git status->git add . -> git commit -m "GET/POST 내용정리"
+->git push origin master)
+
+index.html 실행시키고 싶을 때 node index
+

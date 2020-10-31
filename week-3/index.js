@@ -26,7 +26,6 @@ http.createServer((req, res) => {
     </div>
   </div>
 </body>
-
 </html>
         `);
         res.end();
@@ -56,7 +55,6 @@ http.createServer((req, res) => {
     </div>
   </div>
 </body>
-
 </html>
       `);
       });
@@ -82,7 +80,6 @@ http.createServer((req, res) => {
     </div>
   </div>
 </body>
-
 </html>
     `);
     res.end();
@@ -123,7 +120,6 @@ http.createServer((req, res) => {
     </div>
   </div>
 </body>
-
 </html>
     `);
       res.end();
