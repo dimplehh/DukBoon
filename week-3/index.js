@@ -47,7 +47,7 @@ http.createServer((req, res) => {
         <p>
           <a href="/update?title=${title}">수정</a>
           <form action="/delete_post" method="post">
-            <input type="hidden" name="title" value=${title}>
+            <input type="hidden" name="title" value="${encodeURIComponent(title)}">
             <input type="submit" value="삭제">
           </form>
         </p>
@@ -105,9 +105,9 @@ http.createServer((req, res) => {
         <img src="https://cdn.pixabay.com/photo/2019/08/19/07/45/dog-4415649_960_720.jpg">
         <form action="/update_post" method="post">
           <p>
-            <input type="hidden" name="original_title" value=${urlObj.query.title}>
+            <input type="hidden" name="original_title" value="${urlObj.query.title}">
             <label for="title"> 제목 </label>
-            <input type="text" id="title" name="title" value=${urlObj.query.title}>  
+            <input type="text" id="title" name="title" value="${urlObj.query.title}">  
           </p>
           <textarea name="content">
             ${data}
@@ -148,7 +148,7 @@ http.createServer((req, res) => {
     req.on('end', () => {
       const post = qs.parse(body);
       console.log(post);
-      fs.unlink(`./data/${post.title}.txt`, () => {
+      fs.unlink(decodeURIComponent(`./data/${post.title}.txt`), () => {
         res.writeHead(302, {Location: '/'});
         res.end();
       });
