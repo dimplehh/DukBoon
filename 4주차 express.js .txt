@@ -1,0 +1,61 @@
+4주차 정리--
+<Node.js의존성>
+1.덕분 폴더에서 git 열어서 시작 
+(git status 했을 때 아무것도 없이 깨끗한 상태여야 함)
+2.vs code에서 덕분>week-4라는 폴더 만들기--터미널 열기
+cd week-4
+npm init -y// node.js시작임을 알림 -->package.json생김
+npm install express //node 설치 시작.
+
+Node.js의존성이란? 쉽게 말해 모듈.
+라이브러리/도구 등 require할 수 있는 모듈들을 가리킴.
+Npm을 통해 설치할 수 있음.
+
+<Express.js 설치>
+Npm i express(위에 나왔던 코드)
+Package.json파일을 보면 dependencies 에 express가 추가된 것 알 수 o
+<Express.js 소개>
+Node.js 기반 웹앱 프레임워크
+라우팅,세션 관리 등 귀찮은 일 도와줌
+일례로, Node.js에서 삽질하던 Create,Update등은 Express에서 아주 쉽게 가능(저번시간)
+https://expressjs.com/ko/
+
+연습-> 위 사이트에서 hello world 메뉴 누르고 코드 복사
+app.js만들고 코드 붙여넣기
+터미널에서 node app해보기
+localhost:3000번 주소로 들어가보면 Hello world 잘 써있음.
+
+hello-world.js/app.js비교해보면
+app은 end생략 가능
+
+<미들웨어란?>
+Express에서는 거의 모든 것이 미들웨어
+미들웨어: 요청,응답 객체에 접근할 수 있는 함수.
+이동할 수 있는 다음 app.get같은 것이 있ㄴ으면 그리로 이동하게 해줌 (next)
+next('route')==> 스택에 있는 미들웨어 아닌 그 다음 미들웨어로 넘어감.
+오류처리 미들웨어 app.get((err,req,res,next)=>{...
+
+예제)
+app.js router.js 작성 후 node app 실행한 후
+localhost:3000/pages/3 입력하면 콘솔창에 3 뜸
+
+//?라우터는 왜 쓰는걸까?
+//?express는 어디에 쓰는걸까..?
+
+<Express 의 app개념>
+Const express=require('express')
+COnst app=express()
+
+--App.use
+App.use([path],middleware) 특정 경로에 미들웨어 함수를 등록하는 함수.
+(path부분 없다면 모든 요청에 대해 미들웨어 실행하게 됨
+App.use('/article',router); //
+
+
+
+이해가 어렵다면
+dev-dain.tistory.com/category/Javascript 고고
+
+
+gitignore가서 node검색, 전체 복사
+덕분 폴더에 .gitignore 만들어서 붙여넣기
