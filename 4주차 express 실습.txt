@@ -1,0 +1,12 @@
+덕분 아래에 project폴더 만들기
+terminal에서 
+cd project
+npm init -y
+npm install express
+
+.gitignore은 덕분 아래에
+
+app.js까지 만들고 node app하고 localhost:3000 쓰면 hello world!잘 출력됨.
+
+express는 노드보다 간편하다!
+
