@@ -2,6 +2,7 @@ const express=require('express');
 const router=express.Router();
 const fs=require('fs');
 const template = require('../lib/template');
+const sanitizeHtml=require('sanitize-html');
 
 
 router.get('/create',(req,res)=>{//article/name위에 써야함.
@@ -28,8 +29,10 @@ router.get('/create',(req,res)=>{//article/name위에 써야함.
 });
 
 router.post('/create',(req,res)=>{
-    const title=req.body.title;
-    const content=req.body.content;
+    const title=sanitizeHtml(req.body.title);
+    const content=sanitizeHtml(req.body.content,{
+        allowedTags:['em','strong','h1']
+    });
     fs.writeFile(`./data/${title}.txt`,content,'utf8',()=>{
         res.redirect(302,`/article/${title}`);
     });
@@ -65,8 +68,10 @@ router.get('/update/:name',(req,res)=>{
 
 router.post('/update',(req,res)=>{
     const origin_title=req.body.origin_title;
-    const title=req.body.title;
-    const content=req.body.content;
+    const title=sanitizeHtml(req.body.title);
+    const content=sanitizeHtml(req.body.content,{
+        allowedTags:['em','strong','h1']//스크립트 태그 중 이것들만 살려둠.
+    });
     fs.rename(`./data/${origin_title}.txt`,`./data/${title}.txt`,()=>{
         fs.writeFile(`./data/${title}.txt`,content,'utf8',()=>{
             res.redirect(302,`/article/${title}`);

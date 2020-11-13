@@ -3,10 +3,14 @@ const app=express();
 const router=express.Router();
 const PORT=3000;
 const fs=require('fs');
+const helmet=require('helmet');
+const compression=require('compression');
 const template=require('./lib/template');
 const indexRouter=require('./routes/index');
 const articleRouter=require('./routes/article');
 
+app.use(helmet());
+app.use(compression());
 app.post('*',express.urlencoded({extended:false}));
 app.use(express.static('public'));//정적 파일들을 가져오는 basic repository(이미지)
 
