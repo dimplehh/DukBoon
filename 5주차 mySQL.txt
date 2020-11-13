@@ -1,0 +1,64 @@
+관계형 데이터베이스 (RDBMS)
+SQL에 근간을 둔 데이터베이스
+테이블이라고 부르는 DB객체에 레코드(row)로 저장됨
+데이터를 1개 이상의 테이블 (관계)로 정리
+고유키 (key)가 row를 식별함.
+id/name/country/mailAddress/LastAccessTime
+1 Alice   UK     alice@gmail.com  2020-11-12 00:33:33
+2
+3
+
+id:유일해야됨. primary key
+foreign key:다른 테이블과의 연결을 위한 키.
+
+<주요 자료형>
+Char 고정 문자. 255자까지 허용.--
+Varchar 가변 문자일 때 255자까지 허용--공간낭비 줄이는 데 좋음.
+Text 65536byte까지 허용
+Int 2^32까지 허용 4byte
+Blob 65536byte까지 허용
+DateTime yyyy-mm-dd hh:mm:ss
+
+MySQL:세계에서 가장 많이 쓰이는 RDBMS
+개인용으론 무료지만 상업용에서는 모호.
+MariaDB는 완전히 무료, MySQL과 동일.
+
+MySQL포트번호는 3306/root비밀번호:Hyunhee11!
+
+<실습>
+1.MySQL WorkBench키고 Local instance MySQL80 누르기
+2.Shemas눌러서 그 창 보이게 하기
+3.스키마 창에서 오른쪽마우스->create schema하고 덕분
+4utf-8,general-ci로 생성.
++이후엔 ppt보기
+
+mysql학습하기 아주좋은 사이트 
+https://www.w3schools.com/sql/sql_insert.asp
+
+1.Insert:한 줄 추가
+INSERT INTO Customers (CustomerName, City, Country)
+VALUES ('Cardinal', 'Stavanger', 'Norway');
+
+2.Select:뽑고싶은 레코드만 조회함.
+SELECT (column1,column2,...) FROM (table);
+
+SELECT DISTINCT(column1,column2,...) FROM (table);
+==>중복되지 않는 데이터만 보겠다.
+
+3.WHERE 절 ********************존나중요
+-레코드 조회,수정,삭제 시 어떤 레코드를 선택할 지 필터링해준다.
+SELECT DISTINCT Customername FROM Customers WHERE Country='Mexico';
+							<>
+** WHERE절에서 != 대신 <>써야함.
+SELECT CustomerName FROM Customers WHERE CustomerID BETWEEN 10 AND 20;
+        
+WHERE NOT ID>10
+
+4.UPDATE절
+UPDATE table_name
+SET column1 = value1, column2 = value2, ...
+WHERE condition; //where절 안쓰면 모두 똑같이 바뀜. 존나 재앙임.
+
+5.DELETE절
+DELETE FROM table_name WHERE condition;//이것도 where안써주면 재앙.
+테이블 구조는 유지하되, 데이터만 없애고 싶을 때 종종 사용.
