@@ -62,3 +62,9 @@ WHERE condition; //where절 안쓰면 모두 똑같이 바뀜. 존나 재앙임.
 5.DELETE절
 DELETE FROM table_name WHERE condition;//이것도 where안써주면 재앙.
 테이블 구조는 유지하되, 데이터만 없애고 싶을 때 종종 사용.
+
+<mysql집어넣기>
+INSERT INTO dukboon.article(title,content,created_time,author_id) values('C','C언어',now(),1);
+SELECT * FROM dukboon.article;
+
+프로젝트 폴더에서 npm i mysql입력

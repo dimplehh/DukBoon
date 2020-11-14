@@ -1,5 +1,5 @@
 스크립트 공격 막기
 npm i sanitize-html
 
-npm i helmet
-npm i compression
+npm i helmet//보안에 좋음
+npm i compression//메모리 사용량이 많이 줄어듦.

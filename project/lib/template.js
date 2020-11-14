@@ -42,7 +42,7 @@ module.exports = {
     let list = '<ol>';
     files.forEach(file => {
       const name = path.parse(file).name;
-      list += `<li><a href="/article/${name}">${name}</a></li>`
+      list += `<li><a href="/article/${id}">${name}</a></li>`
     });
     list += '</ol>';
     return list;//여기까지 리스트 만들기
