@@ -23,10 +23,10 @@ app.get('*',(req,res,next)=>{//미들웨어:요청,응답 객체에 접근 가�
     //    next();
     //});
     getConnection(function (conn) {
-        conn.query('SELECT TITLE,ID FROM ARTICLE',(err,results)=>{//SQL문이랑 완전 똑같은 부분.
+        conn.query('SELECT title,id FROM ARTICLE',(err,results)=>{//SQL문이랑 완전 똑같은 부분.
             if (err)
                 next(err);
-            req.list==results;
+            req.list=results;
             console.log(results);
             next();
         });

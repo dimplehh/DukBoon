@@ -41,7 +41,8 @@ module.exports = {
   `, list: (files) => { //files: data의 제목들
     let list = '<ol>';
     files.forEach(file => {
-      const name = path.parse(file).name;
+      const name = file.title;
+      const id=file.id;
       list += `<li><a href="/article/${id}">${name}</a></li>`
     });
     list += '</ol>';

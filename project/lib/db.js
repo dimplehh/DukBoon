@@ -1,4 +1,4 @@
-const mysql=require('mysql');
+const mysql=require('mysql2');
 const config=require('./db-config.json');
 
 const pool=mysql.createPool(config);
@@ -6,7 +6,7 @@ const pool=mysql.createPool(config);
 function getConnection(callback){
     pool.getConnection((err,conn)=>{
         if(!err)
-        callback(conn);
+        callback(conn); 
     });
 }
 
