@@ -6,7 +6,9 @@ const pool=mysql.createPool(config);
 function getConnection(callback){
     pool.getConnection((err,conn)=>{
         if(!err)
-        callback(conn); 
+            callback(conn); 
+        else
+            console.error(err.stack);
     });
 }
 

@@ -3,6 +3,8 @@ const router=express.Router();
 const fs=require('fs');
 const template = require('../lib/template');
 const sanitizeHtml=require('sanitize-html');
+const getConnection = require('../lib/db');
+const { title } = require('process');
 
 
 router.get('/create',(req,res)=>{//article/name위에 써야함.
@@ -86,18 +88,28 @@ router.post('/delete',(req,res)=>{
     });
 });
 
-router.get('/:name',(req,res,next)=>{ //:name:req.params.name이라는 뜻
-    fs.readFile(`./data/${req.params.name}.txt`,(err,data)=>{
-        if (err) throw err;
+router.get('/:id',(req,res,next)=>{ //:name:req.params.name이라는 뜻
+    //fs.readFile(`./data/${req.params.id}.txt`,(err,data)=>{
+      //  if (err) throw err;
+  //  });
+  getConnection(conn=>{
+      conn.query('SELECT id,title,content FROM article WHERE id=?',
+      [req.params.id],(err,results)=>{
+        if(err)
+            next(err);
+        
+        console.log(results);
         const login = '';
-        const title=req.params.name;
-        const content=data;
+        const title=results[0].title;
+        const content=results[0].content;
         const list=template.list(req.list);//함수를 다 빼놓을 수 있음.
         const create=template.create();
         const updateDelete=template.updateDelete(title);
+
         const html=template.html(title,content,list,
             `${create}${updateDelete}`,login);
         res.status(200).send(html);
+      });
     });
 });
 

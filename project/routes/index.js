@@ -8,7 +8,7 @@ router.get('/',(req,res)=>{
 
     const title="Index Page";
     const content=
-    "<img src=/img/pic.jpg style='max-width:100%; height:auto' alt='고양이'>";
+    "<img src=/img/pic.jpg style='max-width:100%; height:auto' alt='건물'>";
     const list=template.list(req.list);
     const create=template.create();
     const html=template.html(title,content,
